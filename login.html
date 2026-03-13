@@ -46,14 +46,21 @@
 
         button:hover {
             background: #4d1c9b !important;
+            cursor: pointer;
         }
 
         .buttons button {
             width: 100% !important;
         }
 
+
         input {
-            width: 100%;
+            margin-top: 5px;
+            height: 36px;
+            border-radius: 10px;
+            width: calc(100% - 15px) !important;
+            border: 1px solid #D4D4D8;
+            padding-left: 15px !important;
         }
 
         .error {
@@ -66,15 +73,6 @@
             overflow-y: auto;
             max-height: 60dvh;
             padding: 10px;
-        }
-
-        .entry input {
-            margin-top: 5px;
-            height: 36px;
-            border-radius: 10px;
-            width: calc(100% - 15px) !important;
-            border: 1px solid #D4D4D8;
-            padding-left: 15px !important;
         }
 
         p {
@@ -101,21 +99,22 @@
             margin-top: 5px;
         }
 
-        button#next {
+        button {
             margin-top: 10px;
             border-radius: 10px;
             background: #5B21B6;
             /* height: 20px !important; */
-            padding: 8px 16px !important;
+            padding: 8px 16px!important;
             color: #FAFAFA;
             border: 0 !important;
             /* shadow/xs */
             display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
+            justify-content: center !important; 
+            align-items: center !important;
+            text-align: center !important;
             box-shadow: var(--shadow-xs-offset-x, 0) var(--shadow-xs-offset-y, 1px) var(--shadow-xs-blur-radius, 2px) var(--shadow-xs-spread-radius, 0) var(--shadow-xs-color, rgba(0, 0, 0, 0.05));
         }
+
     </style>
 </head>
 

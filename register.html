@@ -100,6 +100,14 @@
             margin-top: 5px;
         }
 
+        .helpLink {
+            display: none;
+        }
+
+        input:focus ~ .helpLink {
+            display: block;
+        }
+
         button {
             margin-top: 10px;
             border-radius: 10px;
@@ -137,7 +145,7 @@
     <div style="margin: 0; padding: 0; height: 100dvh; background-color: #EEEEFC; display: flex; gap: 24px; flex: 1;">
         <div style="width: 100%; display: flex; justify-content: center; align-items: center;">
             <div
-            style="max-width: 400px; border: #D4D4D8 1px solid; border-radius: 16px; background-color: white; padding: 24px">
+            style="max-width: 450px; border: #D4D4D8 1px solid; border-radius: 16px; background-color: white; padding: 24px">
                 <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
                     <path fill-rule="evenodd" clip-rule="evenodd"
                         d="M32.5333 28.6353C34.7077 25.6404 36 21.9686 36 18.0096C36 14.0301 34.7077 10.3583 32.5333 7.36346L26.5229 13.3942C27.2614 14.7481 27.6717 16.3276 27.6717 18.0096C27.6717 19.6712 27.2614 21.2506 26.5229 22.6045L32.5333 28.6353Z"

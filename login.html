@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Journey Guide Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script data-container="true" nonce="8yoCoSJ3NMEwRr0aSE4Y3A==">var CP = {"list":[]};
+        var SA_FIELDS = {"AttributeFields":[{"UX_INPUT_TYPE":"EmailBox","USER_INPUT_TYPE":"TextBox","IS_TEXT":true,"IS_EMAIL":false,"IS_PASSWORD":false,"IS_DATE":false,"IS_RADIO":false,"IS_DROP":false,"IS_TEXT_IN_PARAGRAPH":false,"IS_CHECK_MULTI":false,"IS_LINK":false,"VERIFY":false,"DN":"Email Address","ID":"email","U_HELP":"Email address that can be used to contact you.","DAY_PRE":"0","MONTH_PRE":"0","YEAR_PRE":"0","PAT":"^[a-zA-Z0-9!#$%&amp;&#39;+^_`{}~-]+(?:\\.[a-zA-Z0-9!#$%&amp;&#39;+^_`{}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$","PAT_DESC":"Please enter a valid email address.","IS_REQ":false,"IS_RDO":false,"OPTIONS":[]},{"UX_INPUT_TYPE":"Password","USER_INPUT_TYPE":"Password","IS_TEXT":false,"IS_EMAIL":false,"IS_PASSWORD":true,"IS_DATE":false,"IS_RADIO":false,"IS_DROP":false,"IS_TEXT_IN_PARAGRAPH":false,"IS_CHECK_MULTI":false,"IS_LINK":false,"VERIFY":false,"DN":"Password","ID":"password","U_HELP":"Enter password","DAY_PRE":"0","MONTH_PRE":"0","YEAR_PRE":"0","IS_REQ":false,"IS_RDO":false,"OPTIONS":[]}]};
+
+
+        var CONTENT = {"remember_me":"Keep me signed in","invalid_generic":"Please enter a valid {0}","createaccount_one_link":"Sign up now","forgotpassword_link":"Forgot your password?","createaccount_three_links":"Sign up with {0}, {1}, or {2}","requiredField_generic":"Please enter your {0}","local_intro_generic":"Sign in with your {0}","unknown_error":"We are having trouble signing you in. Please try again later.","requiredField_password":"Please enter your password","divider_title":"OR","createaccount_intro":"Don&#39;t have an account?","social_intro":"Sign in with your social account","button_signin":"Sign in","heading":"Sign in","createaccount_two_links":"Sign up with {0} or {1}"};
+
+        var SETTINGS = {"remoteResource":"https://cjgv2storage.blob.core.windows.net/pages/login.html","retryLimit":3,"trimSpacesInPassword":true,"api":"CombinedSigninAndSignup","csrf":"S2ZlSjBaSFk0YjBVVGxQYTJGR013eXFIUlpoakVqZnBkRUN4cUkvdU1CKzJ2UHNwRHhXNnhVT1RRbGoreXR0bVRuVG9QTkgwN2dwVGVXVU9hYWRzWUE9PTsyMDI2LTAzLTEzVDExOjU1OjU0LjcwMTI3NjVaO1lQRFA2Q3pVKzBCZ1FIS25XdmZhblE9PTt7Ik9yY2hlc3RyYXRpb25TdGVwIjoxfQ==","transId":"StateProperties=eyJUSUQiOiIyNWVkMmU4MC1mODMzLTRiMmMtYjc2Mi1lMzgyNmZmMjE4NTUifQ","pageViewId":"8574f634-d771-4c1b-b322-9d2b074ed796","suppressElementCss":false,"isPageViewIdSentWithHeader":false,"allowAutoFocusOnPasswordField":true,"pageMode":1,"config":{"showSignupLink":"false","showHeading":"True","sendHintOnSignup":"False","includePasswordRequirements":"true","enableRememberMe":"false","bottomUnderFormClaimsProviderSelections":"ChangePhoneNumber","forgotPasswordLinkOverride":"ForgotPassword","operatingMode":"Email","announceVerCompleteMsg":"True"},"hosts":{"tenant":"/3b8a7724-03d3-4f8a-a950-9a508f185f82/B2C_1_sign_in","policy":"B2C_1_sign_in","static":"https://devclientology.b2clogin.com/static/"},"locale":{"lang":"en","country":"US"},"xhrSettings":{"retryEnabled":true,"retryMaxAttempts":3,"retryDelay":200,"retryExponent":2,"retryOn":["error","timeout"]}};
+
+    </script>
+    
+    <style>
+        * {
+            font-family: Montserrat, sans-serif;
+        }
+
+        body {
+            margin: 0 !important;
+        }
+        
+        .hide-below-1250 {
+            display: flex;
+        }
+
+        @media (max-width: 1250px) {
+            .hide-below-1250 {
+                display: none !important;
+            }
+        }
+
+        .heading,
+        .intro,
+        .divider {
+            display: none;
+        }
+        .buttons #cancel {
+            display: none;
+        }
+
+        button {
+            background: #5B21B6 !important;
+        }
+
+        button:hover {
+            background: #4d1c9b !important;
+        }
+
+        .buttons button {
+            width: 100% !important;
+        }
+
+        input {
+            width: 100%;
+        }
+
+        .error {
+            color: #EF4444;
+        }
+
+
+        #api {
+            padding-top: 0 !important;
+            overflow-y: auto;
+            max-height: 60dvh;
+            padding: 10px;
+        }
+
+        .entry input{
+            margin-top: 5px;
+            height: 36px;
+            border-radius: 10px;
+            width: calc(100% - 15px) !important;
+            border: 1px solid #D4D4D8;
+            padding-left: 15px !important;
+        }
+
+        p {
+            margin: 0 2px;
+        }
+
+        .entry label {
+            margin-top: 10px !important;
+        }
+
+        .entry-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .password-label {
+            display: contents;
+        }
+
+        #forgotPassword {
+            font-size: 14px;
+            color: #71717A;
+            order: 2;
+            margin-top: 5px;
+        }
+
+        button#next{
+            margin-top: 10px    ;
+            border-radius: 10px;
+            background:  #5B21B6;
+            height: 20px !important;
+            padding: 16px 16px 16px 0px !important;
+            padding-bottom: 16px !important;
+            color: #FAFAFA;
+            border: 0 !important;
+            /* shadow/xs */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            box-shadow: var(--shadow-xs-offset-x, 0) var(--shadow-xs-offset-y, 1px) var(--shadow-xs-blur-radius, 2px) var(--shadow-xs-spread-radius, 0) var(--shadow-xs-color, rgba(0, 0, 0, 0.05));
+        }
+    </style>
+</head>
+
+<body style="margin: 0; padding: 0; height: 100dvh; background-color: #EEEEFC; display: flex; gap: 24px; flex: 1;">
+    <div style="margin: 0; padding: 0; height: 100dvh; background-color: #EEEEFC; display: flex; gap: 24px; flex: 1;">
+    <div style="width: 100%; display: flex; justify-content: center; align-items: center;">
+        <div
+            style="max-width: 360px; border: #D4D4D8 1px solid; border-radius: 16px; background-color: white; padding: 24px">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M32.5333 28.6353C34.7077 25.6404 36 21.9686 36 18.0096C36 14.0301 34.7077 10.3583 32.5333 7.36346L26.5229 13.3942C27.2614 14.7481 27.6717 16.3276 27.6717 18.0096C27.6717 19.6712 27.2614 21.2506 26.5229 22.6045L32.5333 28.6353Z"
+                    fill="#5E3AAB" />
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M17.99 0C8.06164 0 0 8.06154 0 18.0103C0 27.9385 8.06164 36 17.99 36C21.9695 36 25.6413 34.7077 28.6362 32.5333L22.6054 26.5231C21.2515 27.2615 19.672 27.6718 17.99 27.6718C12.6566 27.6718 8.32831 23.3436 8.32831 18.0103C8.32831 12.6564 12.6566 8.32821 17.99 8.32821C19.672 8.32821 21.2515 8.73846 22.6054 9.49744L28.6362 3.46667C25.6413 1.29231 21.9695 0 17.99 0Z"
+                    fill="#005960" />
+            </svg>
+            <h1 class="montserrat" style=" font-size: 30px; font-weight: 700; color: #09090B">Login</h1>
+            <p style="font-size: 14px;font-weight: 400; color: #71717A">Log in using your email address and password, or reset your password if necessary.</p>
+            <div id="api">
+<form id="localAccountForm" class="localAccount" aria-label="Sign in with your email address">
+        <div class="intro">
+          <h2>
+            Sign in with your email address
+          </h2>
+        </div>
+        <div class="error pageLevel" aria-hidden="true" role="alert">
+          <p></p>
+        </div>
+        <div class="entry">
+          <div class="entry-item">
+            <label for="email">
+              Email Address
+            </label>
+            <div class="error itemLevel" aria-hidden="true" role="alert" style="display: none;">
+              <p>Please enter your Email Address</p>
+            </div>
+            <input type="email" id="email" name="Email Address" title="Please enter a valid email address" pattern="^[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+(?:\.[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$" autofocus="" placeholder="Email Address" aria-label="Email Address" class="">
+          </div>
+            <div class="entry-item">
+              <div class="password-label">
+                <label for="password">Password</label>
+                    <a id="forgotPassword" href="/3b8a7724-03d3-4f8a-a950-9a508f185f82/B2C_1_sign_in/api/CombinedSigninAndSignup/forgotPassword?csrf_token=ak1CaUhQbUhEbFQxbmVnNjdBL3BwWXh4cE51UXJFUTE1TDh3VXFwWmFpQkNZTjErSDlWbEdkTmdoWW42eGRHWUNFVnlEdHJxRDlFaHNxSm5nRWl3NEE9PTsyMDI2LTAzLTEzVDA5OjMyOjE1Ljc3MjUzNTJaOy85MGhqay9nSDBlTWhmVVdjV1dNckE9PTt7Ik9yY2hlc3RyYXRpb25TdGVwIjoxfQ==&amp;tx=StateProperties=eyJUSUQiOiI3YjIxY2E5Yi01MmVkLTQ0Y2QtOGExOS04ZjU5Y2U2YjI2ZjgifQ&amp;p=B2C_1_sign_in">Forgot your password?</a>
+                              </div>
+              <div class="error itemLevel" aria-hidden="true" style="display: none;">
+                <p role="alert">Please enter your password</p>
+              </div>
+              <input type="password" id="password" name="Password" placeholder="Password" aria-label="Password" autocomplete="current-password" aria-required="true" class="">
+                          </div>
+
+          <div class="working"></div>
+
+
+
+          <div class="buttons">
+            <button id="next" type="submit" form="localAccountForm">Sign in</button>
+          </div>
+        </div>
+      </form>
+            </div>
+        </div>
+    </div>
+    <div class="hide-below-1250" style="width: 100%; display: flex; justify-content: center; align-items: center;">
+        <img style="border-radius: 16px; object-position: 68% 50%;  object-fit: cover; width: 80%; height: 90%;"
+            src="https://cjgv2storage.blob.core.windows.net/pages/image.jpg" alt="Welcome image" />
+    </div>
+    </div>
+</body>
+
+</html>

@@ -141,16 +141,21 @@
 
         .helpLink {
             display: block;
-            opacity: 0;
+            max-height: 0;
+            margin-top: 0;
+            overflow: hidden;
             visibility: hidden;
-            transition: opacity 0.15s ease, visibility 0s linear 0.35s;
+            pointer-events: none;
+            transition: max-height 0.2s ease 0.25s, margin-top 0.2s ease 0.25s, visibility 0s linear 0.45s;
         }
 
         input:focus ~ .helpLink,
         .helpLink:hover,
         .helpLink:focus {
-            opacity: 1;
+            max-height: 24px;
+            margin-top: 5px;
             visibility: visible;
+            pointer-events: auto;
             transition-delay: 0s;
         }
     </style>

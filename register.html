@@ -7,16 +7,29 @@
     <title>Customer Journey Guide Register</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <style>
-                * {
+        /* ─── Base ──────────────────────────────────────────────────── */
+
+        * {
             font-family: Montserrat, sans-serif;
         }
 
         body {
             margin: 0 !important;
+            padding: 20px;
+            min-height: 100dvh;
+            box-sizing: border-box;
+            background-color: #EEEEFC;
+            display: flex;
+            gap: 24px;
         }
+
+        p {
+            margin: 0 2px;
+        }
+
+        /* ─── Layout ─────────────────────────────────────────────────── */
 
         .hide-below-1250 {
             display: flex;
@@ -28,44 +41,7 @@
             }
         }
 
-        .heading,
-        .intro,
-        .divider {
-            display: none;
-        }
-
-        .buttons #cancel {
-            display: none;
-        }
-
-        button {
-            background: #5B21B6 !important;
-        }
-
-        button:hover {
-            background: #4d1c9b !important;
-            cursor: pointer;
-        }
-
-        .buttons button {
-            width: 100% !important;
-        }
-
-        input {
-            width: 100%;
-        }
-
-        .error {
-            color: #EF4444;
-        }
-
-
-        #api {
-            padding-top: 0 !important;
-            overflow-y: auto;
-            max-height: 65dvh;
-            padding: 10px;
-        }
+        /* ─── Form elements ──────────────────────────────────────────── */
 
         input {
             margin-top: 5px;
@@ -76,10 +52,41 @@
             padding-left: 15px !important;
         }
 
-        p {
-            margin: 0 2px;
+        button {
+            width: 100% !important;
+            margin-top: 24px;
+            padding: 8px 16px !important;
+            border: 0 !important;
+            border-radius: 10px;
+            background: #5B21B6 !important;
+            color: #FAFAFA;
+            font-size: 14px;
+            display: flex;
+            justify-content: center !important;
+            align-items: center !important;
+            text-align: center !important;
+            box-shadow: var(--shadow-xs-offset-x, 0) var(--shadow-xs-offset-y, 1px) var(--shadow-xs-blur-radius, 2px) var(--shadow-xs-spread-radius, 0) var(--shadow-xs-color, rgba(0, 0, 0, 0.05));
         }
 
+        button:hover {
+            background: #4d1c9b !important;
+            cursor: pointer;
+        }
+
+        /* ─── Azure B2C injected elements ────────────────────────────── */
+
+        /* Elements Azure renders that are not needed in this layout */
+        .heading,
+        .intro,
+        .divider {
+            display: none;
+        }
+
+        .buttons #cancel {
+            display: none;
+        }
+
+        /* Azure wraps each field in .entry > .entry-item */
         .entry label {
             margin-top: 16px !important;
         }
@@ -89,10 +96,42 @@
             flex-direction: column;
         }
 
+        /* Azure renders the password label as a wrapper <span> */
         .password-label {
             display: contents;
         }
 
+        .error {
+            color: #EF4444;
+        }
+
+        /* Azure injects the entire form into #api */
+        #api {
+            padding: 10px;
+            padding-top: 0 !important;
+            overflow-y: auto;
+            max-height: 65dvh;
+        }
+
+        /* Azure email verification section */
+        #emailVerificationControl ul {
+            padding-left: 0 !important;
+        }
+
+        ul {
+            padding-left: 0 !important;
+            list-style-type: none;
+        }
+
+        li {
+            margin-top: 15px;
+        }
+
+        .VerificationCode {
+            margin-top: 15px;
+        }
+
+        /* Azure renders help text links below fields; shown on focus */
         a {
             font-size: 14px;
             color: #71717A;
@@ -107,58 +146,29 @@
         input:focus ~ .helpLink {
             display: block;
         }
-
-        button {
-            margin-top: 24px;
-            border-radius: 10px;
-            background: #5B21B6;
-            /* height: 20px !important; */
-            padding: 8px 16px!important;
-            color: #FAFAFA;
-            border: 0 !important;
-            /* shadow/xs */
-            display: flex;
-            justify-content: center !important; 
-            font-size: 14px;
-            align-items: center !important;
-            text-align: center !important;
-            box-shadow: var(--shadow-xs-offset-x, 0) var(--shadow-xs-offset-y, 1px) var(--shadow-xs-blur-radius, 2px) var(--shadow-xs-spread-radius, 0) var(--shadow-xs-color, rgba(0, 0, 0, 0.05));
-        }
-
-        #emailVerificationControl ul {
-            padding-left: 0px !important;
-        }
-        ul {
-            padding-left: 0px !important;
-            list-style-type: none;
-        }
-        li {
-            margin-top: 15px;
-        }
-
-        .VerificationCode{
-            margin-top: 15px;
-        }
     </style>
 </head>
 
-<body >
-    <div style="margin: 0; padding: 20px; min-height: 100dvh; box-sizing: border-box; background-color: #EEEEFC; display: flex; gap: 24px; flex: 1;">
-        <div style="width: 100%; display: flex; justify-content: center; align-items: center;">
-            <div
-            style="max-width: 450px; border: #D4D4D8 1px solid; border-radius: 16px; background-color: white; padding: 24px">
-                <img width="36" height="36" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNiIgaGVpZ2h0PSIzNiIgdmlld0JveD0iMCAwIDM2IDM2IiBmaWxsPSJub25lIj48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTMyLjUzMzMgMjguNjM1M0MzNC43MDc3IDI1LjY0MDQgMzYgMjEuOTY4NiAzNiAxOC4wMDk2QzM2IDE0LjAzMDEgMzQuNzA3NyAxMC4zNTgzIDMyLjUzMzMgNy4zNjM0NkwyNi41MjI5IDEzLjM5NDJDMjcuMjYxNCAxNC43NDgxIDI3LjY3MTcgMTYuMzI3NiAyNy42NzE3IDE4LjAwOTZDMjcuNjcxNyAxOS42NzEyIDI3LjI2MTQgMjEuMjUwNiAyNi41MjI5IDIyLjYwNDVMMzIuNTMzMyAyOC42MzUzWiIgZmlsbD0iIzVFM0FBQiIgLz48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTE3Ljk5IDBDOC4wNjE2NCAwIDAgOC4wNjE1NCAwIDE4LjAxMDNDMCAyNy45Mzg1IDguMDYxNjQgMzYgMTcuOTkgMzZDMjEuOTY5NSAzNiAyNS42NDEzIDM0LjcwNzcgMjguNjM2MiAzMi41MzMzTDIyLjYwNTQgMjYuNTIzMUMyMS4yNTE1IDI3LjI2MTUgMTkuNjcyIDI3LjY3MTggMTcuOTkgMjcuNjcxOEMxMi42NTY2IDI3LjY3MTggOC4zMjgzMSAyMy4zNDM2IDguMzI4MzEgMTguMDEwM0M4LjMyODMxIDEyLjY1NjQgMTIuNjU2NiA4LjMyODIxIDE3Ljk5IDguMzI4MjFDMTkuNjcyIDguMzI4MjEgMjEuMjUxNSA4LjczODQ2IDIyLjYwNTQgOS40OTc0NEwyOC42MzYyIDMuNDY2NjdDMjUuNjQxMyAxLjI5MjMxIDIxLjk2OTUgMCAxNy45OSAwWiIgZmlsbD0iIzAwNTk2MCIgLz48L3N2Zz4=" alt="Logo" />
-                <h1 class="montserrat" style=" font-size: 30px; font-weight: 700; color: #09090B">Register</h1>
-            <p style="font-size: 14px;font-weight: 400; margin-bottom: 0; color: #71717A">Verify your email address and then fill in the remaining fields for registration.</p>
-            <div id="api">
-
-            </div>
+<body>
+    <!-- Register form panel -->
+    <div style="width: 100%; display: flex; justify-content: center; align-items: center;">
+        <div style="max-width: 450px; border: #D4D4D8 1px solid; border-radius: 16px; background-color: white; padding: 24px;">
+            <img width="36" height="36"
+                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNiIgaGVpZ2h0PSIzNiIgdmlld0JveD0iMCAwIDM2IDM2IiBmaWxsPSJub25lIj48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTMyLjUzMzMgMjguNjM1M0MzNC43MDc3IDI1LjY0MDQgMzYgMjEuOTY4NiAzNiAxOC4wMDk2QzM2IDE0LjAzMDEgMzQuNzA3NyAxMC4zNTgzIDMyLjUzMzMgNy4zNjM0NkwyNi41MjI5IDEzLjM5NDJDMjcuMjYxNCAxNC43NDgxIDI3LjY3MTcgMTYuMzI3NiAyNy42NzE3IDE4LjAwOTZDMjcuNjcxNyAxOS42NzEyIDI3LjI2MTQgMjEuMjUwNiAyNi41MjI5IDIyLjYwNDVMMzIuNTMzMyAyOC42MzUzWiIgZmlsbD0iIzVFM0FBQiIgLz48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTE3Ljk5IDBDOC4wNjE2NCAwIDAgOC4wNjE1NCAwIDE4LjAxMDNDMCAyNy45Mzg1IDguMDYxNjQgMzYgMTcuOTkgMzZDMjEuOTY5NSAzNiAyNS42NDEzIDM0LjcwNzcgMjguNjM2MiAzMi41MzMzTDIyLjYwNTQgMjYuNTIzMUMyMS4yNTE1IDI3LjI2MTUgMTkuNjcyIDI3LjY3MTggMTcuOTkgMjcuNjcxOEMxMi42NTY2IDI3LjY3MTggOC4zMjgzMSAyMy4zNDM2IDguMzI4MzEgMTguMDEwM0M4LjMyODMxIDEyLjY1NjQgMTIuNjU2NiA4LjMyODIxIDE3Ljk5IDguMzI4MjFDMTkuNjcyIDguMzI4MjEgMjEuMjUxNSA4LjczODQ2IDIyLjYwNTQgOS40OTc0NEwyOC42MzYyIDMuNDY2NjdDMjUuNjQxMyAxLjI5MjMxIDIxLjk2OTUgMCAxNy45OSAwWiIgZmlsbD0iIzAwNTk2MCIgLz48L3N2Zz4="
+                alt="Logo" />
+            <h1 style="font-size: 30px; font-weight: 700; color: #09090B;">Register</h1>
+            <p style="font-size: 14px; font-weight: 400; margin-bottom: 0; color: #71717A;">
+                Verify your email address and then fill in the remaining fields for registration.
+            </p>
+            <!-- Azure B2C injects the form content here -->
+            <div id="api"></div>
         </div>
     </div>
+
+    <!-- Decorative image panel (hidden below 1250px) -->
     <div class="hide-below-1250" style="width: 100%; display: flex; justify-content: center; align-items: center;">
-        <img style="border-radius: 16px; object-position: 68% 50%;  object-fit: cover; width: 80%; height: 90%;"
+        <img style="border-radius: 16px; object-position: 68% 50%; object-fit: cover; width: 80%; height: 90%;"
             src="https://cjgv2storage.blob.core.windows.net/pages/image.jpg" alt="Welcome image" />
-    </div>
     </div>
 </body>
 

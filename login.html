@@ -7,18 +7,28 @@
     <title>Customer Journey Guide Login</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
-
-
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <style>
+        /* ─── Base ──────────────────────────────────────────────────── */
+
         * {
             font-family: Montserrat, sans-serif;
         }
 
         body {
             margin: 0 !important;
+            padding: 0;
+            height: 100dvh;
+            background-color: #EEEEFC;
+            display: flex;
+            gap: 24px;
         }
+
+        p {
+            margin: 0 2px;
+        }
+
+        /* ─── Layout ─────────────────────────────────────────────────── */
 
         .hide-below-1250 {
             display: flex;
@@ -30,29 +40,7 @@
             }
         }
 
-        .heading,
-        .intro,
-        .divider {
-            display: none;
-        }
-
-        .buttons #cancel {
-            display: none;
-        }
-
-        button {
-            background: #5B21B6 !important;
-        }
-
-        button:hover {
-            background: #4d1c9b !important;
-            cursor: pointer;
-        }
-
-        .buttons button {
-            width: 100% !important;
-        }
-
+        /* ─── Form elements ──────────────────────────────────────────── */
 
         input {
             margin-top: 5px;
@@ -63,22 +51,41 @@
             padding-left: 15px !important;
         }
 
-        .error {
-            color: #EF4444;
+        button {
+            width: 100% !important;
+            margin-top: 24px;
+            padding: 8px 16px !important;
+            border: 0 !important;
+            border-radius: 10px;
+            background: #5B21B6 !important;
+            color: #FAFAFA;
+            font-size: 14px;
+            display: flex;
+            justify-content: center !important;
+            align-items: center !important;
+            text-align: center !important;
+            box-shadow: var(--shadow-xs-offset-x, 0) var(--shadow-xs-offset-y, 1px) var(--shadow-xs-blur-radius, 2px) var(--shadow-xs-spread-radius, 0) var(--shadow-xs-color, rgba(0, 0, 0, 0.05));
         }
 
-
-        #api {
-            padding-top: 0 !important;
-            overflow-y: auto;
-            max-height: 60dvh;
-            padding: 10px;
+        button:hover {
+            background: #4d1c9b !important;
+            cursor: pointer;
         }
 
-        p {
-            margin: 0 2px;
+        /* ─── Azure B2C injected elements ────────────────────────────── */
+
+        /* Elements Azure renders that are not needed in this layout */
+        .heading,
+        .intro,
+        .divider {
+            display: none;
         }
 
+        .buttons #cancel {
+            display: none;
+        }
+
+        /* Azure wraps each field in .entry > .entry-item */
         .entry label {
             margin-top: 16px !important;
         }
@@ -88,6 +95,7 @@
             flex-direction: column;
         }
 
+        /* Azure renders the password label as a wrapper <span> */
         .password-label {
             display: contents;
         }
@@ -99,51 +107,45 @@
             margin-top: 5px;
         }
 
-        button {
-            margin-top: 24px;
-            border-radius: 10px;
-            background: #5B21B6;
-            /* height: 20px !important; */
-            padding: 8px 16px!important;
-            color: #FAFAFA;
-            border: 0 !important;
-            /* shadow/xs */
-            font-size: 14px;
-            display: flex;
-            justify-content: center !important; 
-            align-items: center !important;
-            text-align: center !important;
-            box-shadow: var(--shadow-xs-offset-x, 0) var(--shadow-xs-offset-y, 1px) var(--shadow-xs-blur-radius, 2px) var(--shadow-xs-spread-radius, 0) var(--shadow-xs-color, rgba(0, 0, 0, 0.05));
+        .error {
+            color: #EF4444;
         }
 
+        /* Azure injects the entire form into #api */
+        #api {
+            padding: 10px;
+            padding-top: 0 !important;
+            overflow-y: auto;
+            max-height: 60dvh;
+        }
     </style>
 </head>
 
-<body style="margin: 0; padding: 0; height: 100dvh; background-color: #EEEEFC; display: flex; gap: 24px; flex: 1;">
-    <div style="margin: 0; padding: 0; height: 100dvh; background-color: #EEEEFC; display: flex; gap: 24px; flex: 1;">
-        <div style="width: 100%; display: flex; justify-content: center; align-items: center;">
-            <div
-                style="max-width: 360px; border: #D4D4D8 1px solid; border-radius: 16px; background-color: white; padding: 24px">
-                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                        d="M32.5333 28.6353C34.7077 25.6404 36 21.9686 36 18.0096C36 14.0301 34.7077 10.3583 32.5333 7.36346L26.5229 13.3942C27.2614 14.7481 27.6717 16.3276 27.6717 18.0096C27.6717 19.6712 27.2614 21.2506 26.5229 22.6045L32.5333 28.6353Z"
-                        fill="#5E3AAB" />
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                        d="M17.99 0C8.06164 0 0 8.06154 0 18.0103C0 27.9385 8.06164 36 17.99 36C21.9695 36 25.6413 34.7077 28.6362 32.5333L22.6054 26.5231C21.2515 27.2615 19.672 27.6718 17.99 27.6718C12.6566 27.6718 8.32831 23.3436 8.32831 18.0103C8.32831 12.6564 12.6566 8.32821 17.99 8.32821C19.672 8.32821 21.2515 8.73846 22.6054 9.49744L28.6362 3.46667C25.6413 1.29231 21.9695 0 17.99 0Z"
-                        fill="#005960" />
-                </svg>
-                <h1 class="montserrat" style=" font-size: 30px; font-weight: 700; color: #09090B; margin-bottom: 12px;">Login</h1>
-                <p style="font-size: 14px;margin-bottom: 15px; font-weight: 400; color: #71717A">Log in using your email address and
-                    password, or reset your password if necessary.</p>
-                <div id="api">
-                </div>
-            </div>
+<body>
+    <!-- Login form panel -->
+    <div style="width: 100%; display: flex; justify-content: center; align-items: center;">
+        <div style="max-width: 360px; border: #D4D4D8 1px solid; border-radius: 16px; background-color: white; padding: 24px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M32.5333 28.6353C34.7077 25.6404 36 21.9686 36 18.0096C36 14.0301 34.7077 10.3583 32.5333 7.36346L26.5229 13.3942C27.2614 14.7481 27.6717 16.3276 27.6717 18.0096C27.6717 19.6712 27.2614 21.2506 26.5229 22.6045L32.5333 28.6353Z"
+                    fill="#5E3AAB" />
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M17.99 0C8.06164 0 0 8.06154 0 18.0103C0 27.9385 8.06164 36 17.99 36C21.9695 36 25.6413 34.7077 28.6362 32.5333L22.6054 26.5231C21.2515 27.2615 19.672 27.6718 17.99 27.6718C12.6566 27.6718 8.32831 23.3436 8.32831 18.0103C8.32831 12.6564 12.6566 8.32821 17.99 8.32821C19.672 8.32821 21.2515 8.73846 22.6054 9.49744L28.6362 3.46667C25.6413 1.29231 21.9695 0 17.99 0Z"
+                    fill="#005960" />
+            </svg>
+            <h1 style="font-size: 30px; font-weight: 700; color: #09090B; margin-bottom: 12px;">Login</h1>
+            <p style="font-size: 14px; font-weight: 400; color: #71717A; margin-bottom: 15px;">
+                Log in using your email address and password, or reset your password if necessary.
+            </p>
+            <!-- Azure B2C injects the form content here -->
+            <div id="api"></div>
+        </div>
+    </div>
 
-        </div>
-        <div class="hide-below-1250" style="width: 100%; display: flex; justify-content: center; align-items: center;">
-            <img style="border-radius: 16px; object-position: 68% 50%;  object-fit: cover; width: 80%; height: 90%;"
-                src="https://cjgv2storage.blob.core.windows.net/pages/image.jpg" alt="Welcome image" />
-        </div>
+    <!-- Decorative image panel (hidden below 1250px) -->
+    <div class="hide-below-1250" style="width: 100%; display: flex; justify-content: center; align-items: center;">
+        <img style="border-radius: 16px; object-position: 68% 50%; object-fit: cover; width: 80%; height: 90%;"
+            src="https://cjgv2storage.blob.core.windows.net/pages/image.jpg" alt="Welcome image" />
     </div>
 </body>
 
